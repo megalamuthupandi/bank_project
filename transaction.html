@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><title>Transaction History</title></head>
+<body>
+  <h2>Your Transaction History</h2>
+  <table border="1">
+    <tr>
+      <th>ID</th>
+      <th>Type</th>
+      <th>Amount</th>
+      <th>Date</th>
+    </tr>
+    {% for t in txns %}
+    <tr>
+      <td>{{ t.txn_id }}</td>
+      <td>{{ t.type }}</td>
+      <td>₹ {{ t.amount }}</td>
+      <td>{{ t.txn_date }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <p><a href="/dashboard">⬅ Back to Dashboard</a></p>
+</body>
+</html>
