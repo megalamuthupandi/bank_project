@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login | Your Bank</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root{
+      --bg-gradient: linear-gradient(135deg, #0d1b4c, #1a3e8a);
+      --card-gradient: linear-gradient(145deg, #1c2e70, #243b88);
+      --input-bg:#2f4ca3;
+      --accent: linear-gradient(135deg, #2ac7e3, #0072ff);
+      --accent-hover: linear-gradient(135deg, #22a9c0, #005fcc);
+      --muted:#b9c4ea;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      height:100vh;
+      font-family: 'Poppins', sans-serif;
+      background:var(--bg-gradient);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    /* Card */
+    .login-container{
+      width: 360px;
+      background:var(--card-gradient);
+      padding:40px 36px;
+      border-radius:24px;
+      text-align:center;
+      box-shadow:0 10px 30px rgba(0,0,0,0.35);
+      color:#ffffff;
+      animation: fadeIn 1s ease;
+    }
+
+    /* Icon + title */
+    .brand {
+      font-size:50px;
+      margin-bottom:16px;
+      color:#fff;
+      animation: bounce 2s infinite;
+    }
+    .title {
+      margin:0 0 22px 0;
+      font-size:22px;
+      letter-spacing:0.6px;
+      font-weight:700;
+    }
+
+    /* Input box */
+    .input-box{
+      position:relative;
+      margin-bottom:16px;
+    }
+    .input-box i{
+      position:absolute;
+      left:14px;
+      top:50%;
+      transform:translateY(-50%);
+      color:var(--muted);
+      font-size:14px;
+    }
+    .input-box input{
+      width:100%;
+      padding:12px 14px 12px 42px;
+      border-radius:26px;
+      border:none;
+      background:var(--input-bg);
+      color:#fff;
+      font-size:14px;
+      outline:none;
+      transition:all .25s ease;
+    }
+    .input-box input::placeholder{
+      color:#d9e2ff;
+      opacity:0.75;
+      font-size:13px;
+    }
+    .input-box input:focus{
+      box-shadow:0 0 12px rgba(42,199,227,0.6);
+      transform:scale(1.02);
+    }
+
+    /* Button */
+    .btn{
+      width:100%;
+      padding:12px 14px;
+      border-radius:26px;
+      border:none;
+      font-size:15px;
+      font-weight:600;
+      background:var(--accent);
+      color:#fff;
+      cursor:pointer;
+      transition: all .3s ease;
+      margin-top:6px;
+    }
+    .btn:hover{
+      background:var(--accent-hover);
+      transform:translateY(-2px) scale(1.03);
+      box-shadow:0 8px 20px rgba(42,199,227,0.4);
+    }
+
+    /* small helper text */
+    .helper{
+      margin-top:14px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .helper a{
+      color:#2ac7e3;
+      text-decoration:none;
+      font-weight:600;
+    }
+    .helper a:hover{
+      text-decoration:underline;
+    }
+
+    /* animations */
+    @keyframes fadeIn {
+      from {opacity:0; transform:translateY(20px);}
+      to {opacity:1; transform:translateY(0);}
+    }
+    @keyframes bounce {
+      0%,100% {transform: translateY(0);}
+      50% {transform: translateY(-6px);}
+    }
+
+    @media (max-width:420px){
+      .login-container{ width:92%; padding:28px; border-radius:18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <!-- Bank icon -->
+    <div class="brand"><i class="fa-solid fa-landmark"></i></div>
+    <h2 class="title">YOUR BANK</h2>
+
+    <form method="POST" action="/login" autocomplete="on">
+      <div class="input-box">
+        <i class="fa-solid fa-user"></i>
+        <input type="email" name="email" placeholder="Email" required>
+      </div>
+
+      <div class="input-box">
+        <i class="fa-solid fa-lock"></i>
+        <input type="password" name="password" placeholder="Password" required>
+      </div>
+
+      <button class="btn" type="submit">Login</button>
+    </form>
+
+    <p class="helper">New user? <a href="/register">Create an account</a></p>
+  </div>
+</body>
+</html>
+
